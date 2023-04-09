@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import { Product } from "../entities/product.js"
 
-const schemaProductos = new mongoose.Schema({
+const schemaProducts = new mongoose.Schema({
     productName: { type: String, required: true },
     productDescription: { type: String, required: true },
     productPrice: { type: Number, required: true },
@@ -15,11 +15,11 @@ const schemaProductos = new mongoose.Schema({
 class ProductsManager {
     #productsDb
     constructor() {
-        this.#productsDb = mongoose.model('products', schemaProductos)
+        this.#productsDb = mongoose.model('products', schemaProducts)
     }
     async getProducts() {
         try {
-            const allProducts = this.#productsDb.find().lean()
+            const allProducts = await this.#productsDb.find().lean()
             return allProducts
         } catch (error) {
             throw new Error({ error: error.message })
@@ -37,13 +37,6 @@ class ProductsManager {
                 if (typeof (newProduct.productStatus) !== 'boolean') {
                     newProduct.productStatus = true;
                 }
-                // newProduct.productThumbnail.forEach(element => {
-                //     if (element.type === 'Buffer') {
-                //         const blob = new Blob(element.data, { type: 'image/*' });
-                //         const imageUrl = URL.createObjectURL(blob);
-                //         console.log(imageUrl);
-                //     }
-                // });
                 const result = this.#productsDb.create(newProduct)
                 return result
             }
@@ -51,7 +44,7 @@ class ProductsManager {
     }
     async getProductByID(id) {
         try {
-            const product = this.#productsDb.findById().lean()
+            const product = this.#productsDb.findById(id).lean()
             return product;
         } catch (error) {
             throw new Error({ error: error.message })

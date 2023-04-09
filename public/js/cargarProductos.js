@@ -1,10 +1,7 @@
 const formCargarProductos = document.querySelector('#formCargarProductos');
-
 if (formCargarProductos instanceof HTMLFormElement) {
     formCargarProductos.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-
         try {
             const formData = new FormData(formCargarProductos);
             let data = {}
@@ -23,5 +20,16 @@ if (formCargarProductos instanceof HTMLFormElement) {
         } catch (error) {
             console.error(error);
         }
+    })
+}
+
+const editProductButton = document.querySelectorAll(".editProduct")
+
+if (editProductButton instanceof NodeList) {
+    editProductButton.forEach(e => {
+        e.addEventListener("click", () => {
+
+            console.log('editar: ' + e.parentNode.getAttribute('id'));
+        })
     })
 }

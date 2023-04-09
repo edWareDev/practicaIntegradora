@@ -1,6 +1,8 @@
 import { Router } from "express";
-import { postProductsController } from "../controllers/products.post.controller.js";
+import { cartsRouter } from "./carts.router.js";
+import { productsRouter } from "./products.router.js";
 
 export const routerApi = Router();
 
-routerApi.post('/products', postProductsController);
+routerApi.use('/products', productsRouter)
+routerApi.use('/carts', cartsRouter)

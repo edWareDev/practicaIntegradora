@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
+import crypto from 'crypto'
 
 export class ProductManager {
-    
     constructor(path) {
         this.path = path
     }
@@ -23,7 +23,7 @@ export class ProductManager {
                 title: product.title,
                 description: product.description,
                 price: product.price,
-                status: !!parseInt(product.status),
+                status: product.status,
                 category: product.category,
                 thumbnail: product.thumbnail || [],
                 code: product.code,
@@ -35,13 +35,7 @@ export class ProductManager {
                 if (typeof (newProduct.status) !== 'boolean') {
                     newProduct.status = true;
                 }
-                newProduct.thumbnail.forEach(element => {
-                    if (element.type === 'Buffer') {
-                        const blob = new Blob(element.data, { type: 'image/*' });
-                        const imageUrl = URL.createObjectURL(blob);
-                        console.log(imageUrl);
-                    }
-                });
+                newProduct.id = crypto.randomUUID();
                 allProducts.push(newProduct)
                 await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2))
                 return newProduct

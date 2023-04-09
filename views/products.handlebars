@@ -23,7 +23,7 @@
         Código: <input type="text" name="productCode" id="productCode" placeholder="Código de Producto">
     </label>
     <label for="productStock">
-        Stock: <input type="number" name="productStock" id="productStock">
+        Stock: <input type="number" name="productStock" id="productStock" placeholder="Stock de Productos" min="0">
     </label>
     <button type="submit">Agregar</button>
 </form>
@@ -34,14 +34,14 @@
     {{#each products}}
     {{#if this.productStatus }}
     <li>
-        <article class="card">
+        <article class="card" id="{{this._id}}">
             <div class="card--data">
                 <h3>{{this.productName}} - {{this.productPrice}}</h3>
                 <sub>{{this.productCategory}}</sub>
                 <p>{{this.productDescription}}</p>
                 <h4>{{this.productStock}}</h4>
             </div>
-            <button title="Editar Producto" id="{{this._id}}" class="editProduct">
+            <button title="Editar Producto" class="editProduct">
                 Editar
             </button>
         </article>

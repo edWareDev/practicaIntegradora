@@ -1,0 +1,56 @@
+<h1>Tienda</h1>
+<div class="container">
+    <div class="itemsContainer">
+        <h2>Productos</h2>
+        {{#if hayProducts}}
+        <ul class="cards--container">
+            {{#each products}}
+            {{#if this.productStatus }}
+            <li>
+                <article class="card" id="{{this._id}}">
+                    <div class="card--data">
+                        <h3>{{this.productName}}</h3>
+                        <small>{{this.productCategory}}</small>
+                        <p>{{this.productDescription}}</p>
+                        <h4>{{this.productStock}} unidades disponibles.</h4>
+                    </div>
+                    <button title="Agregar al Carrito" class="addToCart">
+                        <h4><small>US$</small>{{this.productPrice}}.00<i class="fa-solid fa-cart-plus"></i></h4>
+                    </button>
+                </article>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>
+            No hay productos para mostrar
+        </p>
+        {{/if}}
+    </div>
+    <div class="cart">
+        <h2>
+            Carrito
+        </h2>
+        <div class="cartOptions">
+            <label for="cartID">
+                ID: <input type="text" name="cartID" id="cartID" placeholder="ID del carrito">
+            </label>
+            <button title="ACtualizar" class="updateCart">
+                Actualizar
+            </button>
+        </div>
+        <div class="cartItems">
+            <article class="card" id="{{this._id}}">
+                <div class="card--data">
+                    <h3>Nombre del Producto - <small>US$</small>200 X5</h3>
+                </div>
+                <button title="Quitar del Carrito" class="removeFromCart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                </button>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script src="./js/cartOptions.js"></script>
