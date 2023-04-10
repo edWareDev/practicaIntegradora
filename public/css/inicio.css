@@ -24,6 +24,7 @@ ul {
 
 img {
     display: block;
+    user-select: none;
 }
 
 input {
@@ -38,6 +39,8 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    /* overflow: hidden; */
+
 }
 
 h1,
@@ -75,6 +78,8 @@ main .container .itemsContainer .cards--container {
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
+    height: calc(100vh - 142px);
+    overflow: auto;
 }
 
 main .container .itemsContainer .cards--container .card {
@@ -84,10 +89,8 @@ main .container .itemsContainer .cards--container .card {
     justify-content: center;
     border-radius: 1rem;
     align-items: center;
-    width: 22rem;
-    /* height: 10rem; */
+    width: 21rem;
     position: relative;
-    overflow: hidden;
     box-shadow: 0rem 0rem 2rem #000;
 }
 
@@ -131,13 +134,6 @@ main .container .itemsContainer .cards--container .card--data h3 {
     color: #fff;
 }
 
-main .container .itemsContainer .cards--container .card--data .score {
-    font-size: 1.4rem;
-}
-
-main .container .itemsContainer .cards--container .card--data .score .gold {
-    color: #FFB400;
-}
 
 main .container .itemsContainer .cards--container .card .addToCart {
     width: 100%;
@@ -151,6 +147,7 @@ main .container .itemsContainer .cards--container .card .addToCart {
     color: #fff;
     padding: 1.2rem;
     cursor: pointer;
+    user-select: none;
 }
 
 main .container .itemsContainer .cards--container .card .addToCart h4 {
@@ -163,7 +160,7 @@ main .container .itemsContainer .cards--container .card .addToCart h4 {
 
 main .container .cart {
     width: 25%;
-    height: 100vh;
+    height: calc(100vh - 45px);
     display: flex;
     flex-direction: column;
     border-left: 2px dotted #4C0070;
@@ -195,8 +192,8 @@ main .container .cart .cartOptions label {
 
 main .container .cart .cartOptions label input {
     width: 100%;
-    font-size: 1.6rem;
-    padding: 0 .5rem;
+    font-size: 1.5rem;
+    padding: .1rem .5rem;
     text-align: center;
 
 }

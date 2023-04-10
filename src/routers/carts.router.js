@@ -25,7 +25,8 @@ cartsRouter.get('/', async (req, res) => {
 
 cartsRouter.post('/', async (req, res) => {
     try {
-        const newCart = await cartsManager.addCart(req.body)
+        const newCart = await cartsManager.addCart()
+        console.log(newCart);
         res.json(newCart)
     } catch (error) {
         res.status(404).json({ error: error.message })

@@ -20,7 +20,7 @@ routerVistas.get('/products', async (req, res, next) => {
     const products = await productsManager.getProducts();
     res.render('products', {
         cssName: 'products',
-        pageTitle: 'Productos',
+        pageTitle: 'Administrar Productos',
         hayProducts: products.length > 0,
         products
     });

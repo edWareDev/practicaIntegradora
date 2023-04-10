@@ -18,10 +18,10 @@ class CartsManager {
             throw new Error({ error: error.message })
         }
     }
-    async addCart({ products }) {
+    async addCart() {
         try {
             const newCart = {
-                products: {}
+                products: []
             }
             const result = this.#cartsDb.create(newCart)
             return result
