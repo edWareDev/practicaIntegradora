@@ -1,1 +1,1 @@
-export const MONGODB_CNX_STR = 'mongodb://127.0.0.1/ecommerce'
+export const MONGODB_CNX_STR = 'mongodb+srv://coderHouse:testCoderHouse@cluster0.q96bb5u.mongodb.net/ecommerce'

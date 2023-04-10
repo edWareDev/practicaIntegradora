@@ -33,24 +33,25 @@
             Carrito
         </h2>
         <div class="cartOptions">
+            <a href="#" id="createCart">Crear nuevo carro...</a>
             <label for="cartID">
-                ID: <input type="text" name="cartID" id="cartID" placeholder="ID del carrito">
+                ID: <input list="cartsId" type="text" name="cartID" id="cartID" placeholder="ID del carrito">
+                {{#if hayCarts}}
+                <datalist id="cartsId">
+                    {{#each carts}}
+                    <option value="{{this._id}}">
+                        {{/each}}
+                </datalist>
+                {{/if}}
             </label>
-            <button title="ACtualizar" class="updateCart">
+            <button title="Actualizar" class="updateCart">
                 Actualizar
             </button>
         </div>
         <div class="cartItems">
-            <article class="card" id="{{this._id}}">
-                <div class="card--data">
-                    <h3>Nombre del Producto - <small>US$</small>200 X5</h3>
-                </div>
-                <button title="Quitar del Carrito" class="removeFromCart">
-                    <i class="fa-solid fa-cart-arrow-down"></i>
-                </button>
-            </article>
+
         </div>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 <script src="./js/cartOptions.js"></script>

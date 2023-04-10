@@ -45,16 +45,16 @@ cartsRouter.get('/:cid', async (req, res) => {
 
 cartsRouter.post('/:cid/product/:pid', async (req, res) => {
     const cartId = req.params.cid
-    console.log(cartId);
     const productId = req.params.pid
-    console.log(productId);
     try {
-        const newProds = await cartsManager.addProductsToCart(cartId, req.body, productId)
+        const newProds = await cartsManager.addProductsToCart(cartId, productId)
         res.json(newProds)
     } catch (error) {
-        res.status(404).json({ error: error.message })
+        console.error(error)
+        res.status(500).json({ error: 'Ha ocurrido un error inesperado' })
     }
 })
+
 
 // cartsRouter.delete('/:pid', async (req, res) => {
 //     try {

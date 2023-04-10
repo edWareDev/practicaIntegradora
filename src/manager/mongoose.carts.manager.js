@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 
-
 const schemaCarts = new mongoose.Schema({
     products: { type: Object, required: false }
 }, { versionKey: false })
@@ -13,7 +12,7 @@ class CartsManager {
 
     async getCarts() {
         try {
-            const allCarts = await this.#cartsDb.find()
+            const allCarts = await this.#cartsDb.find().lean()
             return allCarts
         } catch (error) {
             throw new Error({ error: error.message })
@@ -32,7 +31,7 @@ class CartsManager {
     }
     async getCartByID(cartId) {
         try {
-            const product = this.#cartsDb.findById(cartId).lean()
+            const product = await this.#cartsDb.findById(cartId).lean()
             return product;
         } catch (error) {
             throw new Error({ error: error.message })
@@ -40,19 +39,36 @@ class CartsManager {
     }
     async addProductsToCart(cartId, productId) {
         try {
-            const cart = this.getCartByID(cartId)
-            const productSelected = cart.products.find(product => product.product === productId)
-            if (productSelected) {
-                productSelected.quantity++
-            } else {
-                this.#cartsDb.findOneAndUpdate({ _id: ObjectId(cartId) }, { products: { product: "p111", quantity: 1 } })
-            }
-            await cart.save()
-            return cart.lean()
+            await this.#cartsDb.findOneAndUpdate(
+                { _id: cartId, "products.product": productId },
+                { $inc: { "products.$.quantity": 1 } },
+                { returnOriginal: false }
+            ).then(async (result) => {
+                if (!result) {
+                    await this.#cartsDb.findOneAndUpdate(
+                        { _id: cartId },
+                        {
+                            $push: {
+                                products: {
+                                    product: productId,
+                                    quantity: 1
+                                }
+                            }
+                        },
+                        { returnOriginal: false }
+                    )
+                }
+            }).catch((error) => {
+                throw new Error({ error: error.message });
+            });
+
+            const updatedCart = await this.getCartByID(cartId);
+            return updatedCart;
         } catch (error) {
-            throw new Error('This cart does not exist');
+            throw new Error({ error: error.message });
         }
     }
+
 
     async deleteProductOfCart(cartId, productId) {
         try {
