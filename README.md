@@ -2,10 +2,11 @@
 practicaIntegradora
 
 ULTIMOS CAMBIOS:
-En el EndPoint './products' puedes agregar productos a la base de datos.
-En el EndPoint './' puedes agregar productos al carrito, ver los productos del carrito.
-    Es importate que para poder agregar productos al carrito, se seleccione un carrito primero.
-    Los productos se muestran en el carrito inmediatamene al agregarlos, ademas los ordena por el nombre del producto.
+*En el EndPoint './products' puedes agregar productos a la base de datos.
+
+*En el EndPoint './' puedes agregar productos al carrito, ver los productos del carrito.
+    +Es importate que para poder agregar productos al carrito, se seleccione un carrito primero.
+    +Los productos se muestran en el carrito inmediatamene al agregarlos, ademas los ordena por el nombre del producto y aclcula el total.
 
 *Se ha creado un vinculo para que te sugiera en el input los carritos registrados en la base de datos.
 **Estoy trabajando en hacer que el acceso a crear nuevo carro funcione.
