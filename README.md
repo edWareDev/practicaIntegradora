@@ -2,6 +2,7 @@
 practicaIntegradora
 
 ULTIMOS CAMBIOS:
+
 *En el EndPoint './products' puedes agregar productos a la base de datos.
 
 *En el EndPoint './' puedes agregar productos al carrito, ver los productos del carrito.
