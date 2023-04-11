@@ -1,8 +1,6 @@
 import mongoose from "mongoose"
-
-const schemaCarts = new mongoose.Schema({
-    products: { type: Object, required: false }
-}, { versionKey: false })
+import { Cart } from "../entities/cart.js"
+import { schemaCarts } from "./models/schemaCarts.js"
 
 class CartsManager {
     #cartsDb
@@ -20,9 +18,8 @@ class CartsManager {
     }
     async addCart() {
         try {
-            const newCart = {
-                products: []
-            }
+            const newCart = new Cart()
+            console.log(newCart);
             const result = this.#cartsDb.create(newCart)
             return result
         } catch (error) {

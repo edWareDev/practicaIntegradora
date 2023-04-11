@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { cartsManager } from '../manager/mongoose.carts.manager.js';
+import { cartsManager } from '../dao/mongoose.carts.manager.js';
 
 export const cartsRouter = Router();
 
@@ -26,6 +26,7 @@ cartsRouter.get('/', async (req, res) => {
 cartsRouter.post('/', async (req, res) => {
     try {
         const newCart = await cartsManager.addCart()
+
         console.log(newCart);
         res.json(newCart)
     } catch (error) {

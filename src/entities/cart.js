@@ -1,5 +1,5 @@
-export class Product {
-    constructor({ cartProducts }) {
-        this.cartProducts = cartProducts || {}
+export class Cart {
+    constructor() {
+        this.products = []
     }
 }

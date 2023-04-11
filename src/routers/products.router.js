@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { postProductsController } from "../controllers/products.post.controller.js";
-import { productsManager } from '../manager/mongoose.products.manager.js';
+import { productsManager } from '../dao/mongoose.products.manager.js';
 import { getProductsController } from '../controllers/products.get.controller.js';
 
 export const productsRouter = Router();

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { productsManager } from "../manager/mongoose.products.manager.js";
-import { cartsManager } from "../manager/mongoose.carts.manager.js";
+import { productsManager } from "../dao/mongoose.products.manager.js";
+import { cartsManager } from "../dao/mongoose.carts.manager.js";
 
 export const routerVistas = Router()
 

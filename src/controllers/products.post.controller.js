@@ -1,4 +1,4 @@
-import { productsManager } from "../manager/mongoose.products.manager.js";
+import { productsManager } from "../dao/mongoose.products.manager.js";
 
 export async function postProductsController(req, res, next) {
     const datosProductos = req.body;
