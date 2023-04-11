@@ -85,7 +85,7 @@ async function drawCart(products) {
         {{#each products}}
         <article class="card" id="{{this._id}}">
             <div class="card--data">
-                <h3>{{this.productName}} - <small>US$</small>{{this.productPrice}} (cant:{{this.quantity}})</h3>
+                <h3>{{this.productName}} - <small>US$</small><span class="price">{{this.productPrice}}</span> (cant:{{this.quantity}})</h3>
             </div>
             <button title="Quitar del Carrito" class="removeFromCart">
                 <i class="fa-solid fa-cart-arrow-down"></i>
@@ -93,7 +93,7 @@ async function drawCart(products) {
         </article>
         {{/each}} 
             <div class="totalCart">
-                <h2>Total: <small>US$</small>{{precioTotal}}</h2>
+                <h2>Total: <small>US$</small><span class="price">{{precioTotal}}</span></h2>
             </div>`;
         const renderProducts = Handlebars.compile(template);
         document.querySelector(".cartItems").innerHTML = renderProducts({ products: allProductsOfCart, precioTotal });

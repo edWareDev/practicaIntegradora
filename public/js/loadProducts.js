@@ -17,10 +17,7 @@ if (formCargarProductos instanceof HTMLFormElement) {
             }
         });
         data = await response.json();
-        if (!data.ok) {
-            alert(data.error)
-        }
-
+        window.location.reload()
     })
 }
 
