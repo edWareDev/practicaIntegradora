@@ -1,25 +1,11 @@
 import { Router } from 'express';
 import { postProductsController } from "../controllers/products.post.controller.js";
 import { productsManager } from '../manager/mongoose.products.manager.js';
+import { getProductsController } from '../controllers/products.get.controller.js';
 
 export const productsRouter = Router();
 
-productsRouter.get('/', async (req, res) => {
-    const queryParams = req.query;
-    const allProducts = await productsManager.getProducts()
-    const resultado = [];
-
-    if (queryParams.limit) {
-        for (let product = 0; product <= queryParams.limit - 1; product++) {
-            if (allProducts[product]) {
-                resultado.push(allProducts[product]);
-            }
-        }
-        res.json(resultado);
-    } else {
-        res.json(allProducts)
-    }
-})
+productsRouter.get('/', getProductsController)
 
 productsRouter.post('/', postProductsController)
 
@@ -31,7 +17,6 @@ productsRouter.get('/:pid', async (req, res) => {
     } else {
         res.json(product)
     }
-
 })
 
 productsRouter.put('/:pid', async (req, res) => {

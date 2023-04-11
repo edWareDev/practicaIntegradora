@@ -1,60 +1,134 @@
 <h1>Productos</h1>
-<h2>Agregar Productos</h2>
-<form id="formCargarProductos" action="/api/products">
-    <label for="productName">
-        Nombre: <input type="text" name="productName" id="productName" placeholder="Nombre del Producto">
-    </label>
-    <label for="productDescription">
-        Descripción: <input type="text" name="productDescription" id="productDescription" placeholder="Descripción">
-    </label>
-    <label for="productPrice">
-        Precio: <input type="number" name="productPrice" id="productPrice" placeholder="Precio" min="0">
-    </label>
-    <label for="productStatus">
-        Estado: <select name="productStatus" id="productStatus">
-            <option value="1" selected>Activo</option>
-            <option value="0">Inactivo</option>
-        </select>
-    </label>
-    <label for="productCategory">
-        Categoría: <input type="text" name="productCategory" id="productCategory" placeholder="Categoria">
-    </label>
-    <label for="productCode">
-        Código: <input type="text" name="productCode" id="productCode" placeholder="Código de Producto">
-    </label>
-    <label for="productStock">
-        Stock: <input type="number" name="productStock" id="productStock" placeholder="Stock de Productos" min="0">
-    </label>
-    <button type="submit">Agregar</button>
-</form>
+<div class="container">
+    <div class="buttons">
+        <button title="Agregar Producto">Agregar</button>
+    </div>
+    <div class="formContainer">
+        <div class="addProduct invisible ">
+            <h2>Agregar Productos</h2>
+            <form id="formCargarProductos" action="/api/products">
+                <label for="productName">
+                    Nombre: <input type="text" name="productName" id="productName" placeholder="Nombre del Producto">
+                </label>
+                <label for="productDescription">
+                    Descripción: <input type="text" name="productDescription" id="productDescription"
+                        placeholder="Descripción">
+                </label>
+                <label for="productPrice">
+                    Precio: <input type="number" name="productPrice" id="productPrice" placeholder="Precio" min="0">
+                </label>
+                <label for="productStatus">
+                    Estado: <select name="productStatus" id="productStatus">
+                        <option value="1" selected>Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </label>
+                <label for="productCategory">
+                    Categoría: <input type="text" name="productCategory" id="productCategory" placeholder="Categoria">
+                </label>
+                <label for="productCode">
+                    Código: <input type="text" name="productCode" id="productCode" placeholder="Código de Producto">
+                </label>
+                <label for="productStock">
+                    Stock: <input type="number" name="productStock" id="productStock" placeholder="Stock de Productos"
+                        min="0">
+                </label>
+                <button type="submit">Agregar</button>
+            </form>
 
-<h2>Listado de Productos</h2>
-{{#if hayProducts}}
-<ul>
-    {{#each products}}
-    {{#if this.productStatus }}
-    <li>
-        <article class="card" id="{{this._id}}">
-            <div class="card--data">
-                <h3>{{this.productName}} - {{this.productPrice}}</h3>
-                <img src="https://via.placeholder.com/220x220" alt="image_placeholder">
-                <sub>{{this.productCategory}}</sub>
-                <p>{{this.productDescription}}</p>
-                <h4>{{this.productStock}}</h4>
-            </div>
-            <button title="Editar Producto" class="editProduct">
-                Editar
-            </button>
-        </article>
-    </li>
-    {{/if}}
-    {{/each}}
-</ul>
-{{else}}
-<p>
-    No hay productos para mostrar
-</p>
-{{/if}}
+        </div>
+        <div class="editProduct invisible">
+            <h2>Editar Producto</h2>
+            <form id="formCargarProductos" action="/api/products">
+                <label for="productName">
+                    Nombre: <input type="text" name="productName" id="productName" placeholder="Nombre del Producto">
+                </label>
+                <label for="productDescription">
+                    Descripción: <input type="text" name="productDescription" id="productDescription"
+                        placeholder="Descripción">
+                </label>
+                <label for="productPrice">
+                    Precio: <input type="number" name="productPrice" id="productPrice" placeholder="Precio" min="0">
+                </label>
+                <label for="productStatus">
+                    Estado: <select name="productStatus" id="productStatus">
+                        <option value="1" selected>Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </label>
+                <label for="productCategory">
+                    Categoría: <input type="text" name="productCategory" id="productCategory" placeholder="Categoria">
+                </label>
+                <label for="productCode">
+                    Código: <input type="text" name="productCode" id="productCode" placeholder="Código de Producto">
+                </label>
+                <label for="productStock">
+                    Stock: <input type="number" name="productStock" id="productStock" placeholder="Stock de Productos"
+                        min="0">
+                </label>
+                <button type="submit">Agregar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="productsContainer">
+        <h2>Listado de Productos</h2>
+        {{#if hayProducts}}
+        <ul>
+            <li>
+                <article class="card">
+                    <div class="card--data">
+                        <h4><u>NOMBRE</u></h4>
+                        <h4><u>PRECIO</u></h4>
+                        <img src="https://via.placeholder.com/220x220" alt="image_placeholder">
+                        <h4><u>CATEGORÍA</u></h4>
+                        <h4><u>DESCRIPCIÓN</u></h4>
+                        <h4><u>STOCK</u></h4>
+                    </div>
+                    <div class="card--buttons">
+                        <button class="editProduct" disabled>
+                            Editar
+                        </button>
+                        <button class="editProduct" disabled>
+                            Eliminar
+                        </button>
+                    </div>
+                </article>
+            </li>
+            {{#each products}}
+            {{#if this.productStatus }}
+            <li>
+                <article class="card" id="{{this._id}}">
+                    <div class="card--data">
+                        <h3>{{this.productName}}</h3>
+                        <h3>{{this.productPrice}}</h3>
+                        <img src="https://via.placeholder.com/220x220" alt="image_placeholder">
+                        <p>{{this.productCategory}}</p>
+                        <p>{{this.productDescription}} {{this.productDescription}} {{this.productDescription}}
+                            {{this.productDescription}}</p>
+                        <p>{{this.productStock}}</p>
+                    </div>
+                    <div class="card--buttons">
+                        <button title="Editar Producto" class="editProduct">
+                            Editar
+                        </button>
+                        <button title="Editar Producto" class="editProduct">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </article>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>
+            No hay productos para mostrar
+        </p>
+        {{/if}}
+    </div>
 
 
-<script src="./js/loadProducts.js"></script>
+    <script src="./js/loadProducts.js"></script>

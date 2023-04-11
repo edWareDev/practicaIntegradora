@@ -3,7 +3,7 @@
 Ultimos Cambios:
 --
 * En el EndPoint './products' puedes agregar productos a la base de datos.
-* En el EndPoint './' puedes agregar productos al carrito, ver los productos del carrito.
+* En el EndPoint './' puedes crear carrito, agregar productos al carrito, ver los productos del carrito.
     * Es importate que para poder agregar productos al carrito, se seleccione un carrito primero.
     * Los productos se muestran en el carrito inmediatamene al agregarlos, ademas los ordena por el nombre del producto y aclcula el total.
 * El ID de los carritos registrados en la base de datos son sugeridos en el input.

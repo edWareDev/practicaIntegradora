@@ -93,7 +93,7 @@ async function drawCart(products) {
         </article>
         {{/each}} 
             <div class="totalCart">
-                <h2>TOTAL: <small>US$</small>{{precioTotal}}</h2>
+                <h2>Total: <small>US$</small>{{precioTotal}}</h2>
             </div>`;
         const renderProducts = Handlebars.compile(template);
         document.querySelector(".cartItems").innerHTML = renderProducts({ products: allProductsOfCart, precioTotal });
