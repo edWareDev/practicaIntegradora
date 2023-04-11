@@ -7,6 +7,7 @@ Ultimos Cambios:
     * Es importate que para poder agregar productos al carrito, se seleccione un carrito primero.
     * Los productos se muestran en el carrito inmediatamene al agregarlos, ademas los ordena por el nombre del producto y aclcula el total.
 * El ID de los carritos registrados en la base de datos son sugeridos en el input.
+* Está vinculada a la abse de datos de MongoDB onlinea, así que solo sera necesario el mpn-test y podrñas acceder a todos los datos.
 
 Cambios Anteriores:
 ---
