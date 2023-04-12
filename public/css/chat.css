@@ -153,6 +153,8 @@ main .container .chatContainer .chat .chat-body .message .message-text {
     max-width: 100%;
     align-self: flex-start;
     background-color: #F16767;
+    box-shadow: 5px 5px 5px #0004;
+
 }
 
 main .container .chatContainer .chat .chat-body .message .message-text a {
@@ -163,13 +165,17 @@ main .container .chatContainer .chat .chat-body .message .message-text a {
 main .container .chatContainer .chat .chat-body .message .message-text p {
     font-size: 1.4rem;
     font-weight: 600;
+    text-align: left;
 }
 
 main .container .chatContainer .chat .chat-body .message .message-time {
     font-size: 12px;
     margin-top: 5px;
-    text-align: left;
     color: #666;
+}
+
+main .container .chatContainer .chat .chat-body .message .message-time .messageDate {
+    text-shadow: 5px 5px 5px #0004;
 }
 
 .sent {
@@ -178,6 +184,7 @@ main .container .chatContainer .chat .chat-body .message .message-time {
 
 .sent .message-text {
     background-color: #FFB84C !important;
+    align-self: flex-end !important;
 }
 
 .sent .message-time {

@@ -12,9 +12,9 @@ const plantillaMensajes = `
     <div class="chat-body">
         {{#if hayChats}}
             {{#each chats}}
-            <div class="message received">
+            <div class="message">
                 <div class="message-text">
-                    <a class="messageEmail" href="#">{{this.user}}</a>
+                    <a class="messageEmail" href="#">{{this.user}}:</a>
                     <p>{{this.message}}</p>
                 </div>
                 <div class="message-time">
@@ -64,6 +64,7 @@ serverSocket.on('actualizarMensajes', chats => {
             if (text.innerText.search(document.querySelector('#userEmail').value) >= 0) {
                 // text.innerText
                 text.parentElement.classList.add('sent')
+                text.childNodes[1].innerText = ''
             }
         })
 

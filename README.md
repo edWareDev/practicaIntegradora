@@ -2,7 +2,7 @@
 # Practica Integradora
 Ultimos Cambios:
 --
-* En el EndPoint './chats' puedes acceder al chat. Me he esforzado en darle cosas interesantes para que sea más interactivo.
+* En el EndPoint './chat' puedes acceder al chat. Me he esforzado en darle cosas interesantes para que sea más interactivo.
     * Recónoce los chats própios y los pone al lado derecho.
     * Genera una lista de correos participantes en el chat y te los muestra.
     * Se puede enviar mensajes con la tecla Enter.
