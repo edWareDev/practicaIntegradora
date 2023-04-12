@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { productsManager } from "../dao/mongoose.products.manager.js";
 import { cartsManager } from "../dao/mongoose.carts.manager.js";
+import { chatsManager } from "../dao/mongoose.chats.manager.js";
 
 export const routerVistas = Router()
 
@@ -25,3 +26,11 @@ routerVistas.get('/products', async (req, res, next) => {
         products
     });
 });
+routerVistas.get('/chat', async (req, res, next) => {
+    // const chats = await chatsManager.getChats();
+    res.render('chat', {
+        cssName: 'chat',
+        pageTitle: 'Chat'
+    }
+    )
+})
