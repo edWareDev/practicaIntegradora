@@ -40,17 +40,29 @@ class ProductsManager {
             throw new Error({ error: error.message })
         }
     }
-    async updateProduct(id, newProps) {
-        const allProducts = await this.getProducts();
-        const productIndex = allProducts.findIndex(product => product.id === id);
-        if (productIndex !== -1) {
-            allProducts[productIndex] = { ...allProducts[productIndex], ...newProps, ...{ "id": id } };
-            await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2))
-            console.log('Changes has been changed succesfully');
-            return allProducts[productIndex];
-        } else {
-            throw new Error('This product does not exist');
+    async updateProduct(productId, newProps) {
+        try {
+            const product = await this.#productsDb.findOneAndUpdate(
+                { _id: productId },
+                { $set: newProps },
+                { returnOriginal: false }
+            ).catch((error) => {
+                throw new Error({ error: error.message });
+            });
+            return product;
+        } catch (error) {
+            throw new Error({ error: error.message });
         }
+        // const allProducts = await this.getProducts();
+        // const productIndex = allProducts.findIndex(product => product.id === id);
+        // if (productIndex !== -1) {
+        //     allProducts[productIndex] = { ...allProducts[productIndex], ...newProps, ...{ "id": id } };
+        //     await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2))
+        //     console.log('Changes has been changed succesfully');
+        //     return allProducts[productIndex];
+        // } else {
+        //     throw new Error('This product does not exist');
+        // }
     }
     async deleteProduct(id) {
         const allProducts = await this.getProducts();
