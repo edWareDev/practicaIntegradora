@@ -31,6 +31,7 @@ productsRouter.put('/:pid', async (req, res) => {
 productsRouter.delete('/:pid', async (req, res) => {
     try {
         const deletedProduct = await productsManager.deleteProduct(req.params.pid)
+        console.log('LLegamoa aqui');
         res.json(deletedProduct)
     } catch (error) {
         res.status(404).json({ error: error.message })

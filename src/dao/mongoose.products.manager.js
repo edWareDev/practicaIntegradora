@@ -53,28 +53,13 @@ class ProductsManager {
         } catch (error) {
             throw new Error({ error: error.message });
         }
-        // const allProducts = await this.getProducts();
-        // const productIndex = allProducts.findIndex(product => product.id === id);
-        // if (productIndex !== -1) {
-        //     allProducts[productIndex] = { ...allProducts[productIndex], ...newProps, ...{ "id": id } };
-        //     await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2))
-        //     console.log('Changes has been changed succesfully');
-        //     return allProducts[productIndex];
-        // } else {
-        //     throw new Error('This product does not exist');
-        // }
     }
     async deleteProduct(id) {
-        const allProducts = await this.getProducts();
-        const productIndex = allProducts.findIndex(product => product.id === id);
-        if (productIndex !== -1) {
-            const deletedProduct = allProducts[productIndex];
-            allProducts.splice(productIndex, 1);
-            await fs.writeFile(this.path, JSON.stringify(allProducts, null, 2))
-            console.log('This product has been deleted');
+        try {
+            const deletedProduct = await this.#productsDb.findByIdAndDelete(id).lean()
             return deletedProduct;
-        } else {
-            throw new Error('This product does not exist');
+        } catch (error) {
+            throw new Error({ error: error.message })
         }
     }
 }

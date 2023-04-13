@@ -93,3 +93,35 @@ if (editProductButton instanceof NodeList) {
         })
     })
 }
+
+const deleteProductButton = document.querySelectorAll(".deleteProduct")
+if (deleteProductButton instanceof NodeList) {
+    deleteProductButton.forEach(e => {
+        const productId = e.parentElement.parentElement.getAttribute('id')
+        e.addEventListener("click", async () => {
+            try {
+                const response = await fetch(`/api/products/${productId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                if (response.ok) {
+                    data = await response.json();
+                    window.location.reload()
+                } else {
+                    console.error(data.error);
+                    alert(data.error)
+                }
+            } catch (error) {
+                console.error('Error al obtener los detalles del producto:', error);
+                // Agregar un mensaje de error al usuario
+                if (error instanceof TypeError && error.message.includes('NetworkError')) {
+                    alert('No se pudo conectar con el servidor. Por favor, revise su conexión a internet e inténtelo de nuevo más tarde.');
+                } else {
+                    alert('Error al obtener los detalles del producto. Por favor, inténtelo de nuevo más tarde.');
+                }
+            }
+        })
+    })
+}
