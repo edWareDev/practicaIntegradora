@@ -1,248 +1,306 @@
 *,
 *::after,
 *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+  font-family: sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+  height: 100vh;
 }
 
-
-a,
-a:link,
-a:visited {
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    display: block;
-    user-select: none;
-}
-
-input {
-    outline: none;
-}
-
-body {
-    background-color: #160040;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    /* overflow: hidden; */
-
-}
-
-h1,
-h2 {
-    margin: 0 auto;
-    text-align: center;
-    padding: 1rem;
-    width: 100%;
-    background-color: #4C0070;
-    color: white;
+.inv {
+  display: none !important;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-main .container {
-    display: flex;
-    justify-content: center;
+main .actions {
+  height: 6vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-main .container .itemsContainer {
-    width: 75%;
-    gap: 1rem;
-    padding: 1rem;
+main .actions .logo {
+  width: 14%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main .container .itemsContainer .cards--container {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem 0;
-    height: calc(100vh - 142px);
-    overflow: auto;
+main .actions .loadOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #04AA6D;
+  border-radius: 1rem;
+  width: 20%;
+  height: 2rem;
+  overflow: hidden;
 }
 
-main .container .itemsContainer .cards--container .card {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 1rem;
-    align-items: center;
-    width: 21rem;
-    position: relative;
-    box-shadow: 0rem 0rem 2rem #000;
+main .actions .loadOptions .buttonFile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 84%;
+  cursor: pointer;
+  color: #04AA6D;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-/* main .container .itemsContainer .cards--container .card .imgContainer {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main .actions .loadOptions>span {
+  width: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
 }
 
-main .container .itemsContainer .cards--container .card .imgContainer .popUp {
-    position: absolute;
-    top: 0;
-    background-color: #FFB400;
-    width: 100%;
-    text-align: center;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #FFFBE0;
+main .actions .totalRegisters {
+  padding: 0 0.5rem;
+  background-color: #04AA6D;
+  color: white;
+  font-weight: 600;
+  width: 12%;
+  height: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-main .container .itemsContainer .cards--container .card .imgContainer img {
-    width: 100%;
-} */
-
-main .container .itemsContainer .cards--container .card--data {
-    background-color: #2994B2;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    width: 100%;
-    text-align: center;
-    padding: 0.5rem;
+main .actions .progressBar {
+  width: 30%;
+  height: 2rem;
 }
 
-main .container .itemsContainer .cards--container .card--data h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #fff;
+main .actions .progressBar .allBar {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2666666667);
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
-
-main .container .itemsContainer .cards--container .card .addToCart {
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4rem;
-    border: none;
-    background-color: #FFB400;
-    color: #fff;
-    padding: 1.2rem;
-    cursor: pointer;
-    user-select: none;
+main .actions .progressBar .allBar .progressInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main .container .itemsContainer .cards--container .card .addToCart h4 {
-    width: 100%;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+main .actions .progressBar .allBar .progressInfo span {
+  color: #026e46;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
-main .container .cart {
-    width: 25%;
-    height: calc(100vh - 45px);
-    display: flex;
-    flex-direction: column;
-    border-left: 2px dotted #4C0070;
-    padding: 1rem;
+main .actions .progressBar .allBar .currentPos {
+  width: 100%;
+  height: 100%;
+  background: #04AA6D;
+  border-radius: 1rem;
 }
 
-main .container .cart .cartOptions {
-    display: flex;
-    flex-direction: column;
+main .actions .buttons {
+  width: 10%;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-main .container .cart .cartOptions #createCart {
-    color: gold;
-    text-decoration: underline;
-    margin: 1rem 0;
-    text-align: center;
-    font-size: 1.4rem;
+main .actions .buttons span {
+  background-color: #04AA6D;
+  color: white;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
-main .container .cart .cartOptions label {
-    margin: 1rem 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    font-size: 1.6rem;
+main .actions .buttons .disabled {
+  background-color: rgba(0, 0, 0, 0.5333333333);
+  cursor: auto;
 }
 
-main .container .cart .cartOptions label input {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: .1rem .5rem;
-    text-align: center;
+main .content {
+  background-color: white;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+main .content .tableHeader {
+  background-color: #04AA6D;
+  height: 4vh;
+  width: 98.9%;
+}
+
+main .content .tableHeader .registro {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  height: 100%;
+}
+
+main .content .tableHeader .registro div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .content .tableHeader .registro div label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .content .tableHeader .registro div label input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+main .content .tableBody {
+  position: relative;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+main .content .tableBody .registro {
+  display: flex;
+  font-size: 1rem;
+  text-align: center;
+}
+
+main .content .tableBody .registro div {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+main .content .tableBody .registro div label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .content .tableBody .registro div label input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+main .content .registro div {
+  padding: 4px 8px;
+}
+
+main .content .registro> :nth-child(1) {
+  width: 3%;
+  background-color: #04AA6D;
+  color: white;
+  font-weight: 900;
+  padding: 0 !important;
+}
+
+main .content .registro> :nth-child(2) {
+  width: 2%;
+  background-color: transparent;
 
 }
 
-main .container .cart .cartOptions label datalist {
-    width: 80%;
-    font-size: 1.6rem;
-    padding: 0 .5rem;
-    text-align: center;
-    background-color: red;
+main .content .registro> :nth-child(3) {
+  width: 5%;
 }
 
-main .container .cart .cartOptions button {
-    background-color: #9A0680;
-    color: white;
-    padding: 5px;
-    width: 100%;
-    font-size: 1.4rem;
-    cursor: pointer;
+main .content .registro> :nth-child(4) {
+  width: 4%;
 }
 
-main .container .cart .cartItems {
-    border-top: 2px dotted #4C0070;
-    /* background-color: red; */
-    margin: 1rem 0;
-    padding: 1rem 0;
-
+main .content .registro> :nth-child(5) {
+  width: 4%;
 }
 
-main .container .cart .cartItems .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #79018C;
-    padding: .5rem;
+main .content .registro> :nth-child(6) {
+  width: 4%;
 }
 
-main .container .cart .cartItems .card .card--data {
-    font-size: 1.2rem;
+main .content .registro> :nth-child(7) {
+  width: 6%;
 }
 
-main .container .cart .cartItems .card button {
-    background-color: #9A0680;
-    color: white;
-    padding: 4px;
-    font-size: 1.4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: none; */
-    cursor: pointer;
+main .content .registro> :nth-child(8) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 18%;
+}
+
+main .content .registro> :nth-child(9) {
+  width: 5%;
+}
+
+main .content .registro> :nth-child(10) {
+  width: 6%;
+}
+
+main .content .registro> :nth-child(11) {
+  width: 5%;
+}
+
+main .content .registro> :nth-child(12) {
+  width: 5%;
+}
+
+main .content .registro> :nth-child(13) {
+  width: 8%;
+}
+
+main .content .registro> :nth-child(14) {
+  width: 6%;
+}
+
+main .content .registro> :nth-child(15) {
+  width: 6%;
+}
+
+main .content .registro> :nth-child(16) {
+  width: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .content .registro> :nth-child(16) p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

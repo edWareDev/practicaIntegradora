@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { cartsRouter } from "./carts.router.js";
-import { productsRouter } from "./products.router.js";
+import { getToken } from "../controllers/getToken.js";
+import { validateCmp } from "../controllers/validateCmp.js";
 
 export const routerApi = Router();
 
-routerApi.use('/products', productsRouter)
-routerApi.use('/carts', cartsRouter)
+routerApi.get('/getToken', getToken)
+routerApi.post('/validateCmp', validateCmp);

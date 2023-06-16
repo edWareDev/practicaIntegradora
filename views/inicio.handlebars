@@ -1,58 +1,76 @@
-<h1>Tienda</h1>
-<div class="container">
-    <div class="itemsContainer">
-        <h2>Productos</h2>
-        {{#if hayProducts}}
-        <ul class="cards--container">
-            {{#each products}}
-            {{#if this.productStatus }}
-            <li>
-                <article class="card" id="{{this._id}}">
-                    <div class="card--data">
-                        <h3>{{this.productName}}</h3>
-                        <img src="https://via.placeholder.com/330" alt="image_placeholder">
-                        <small>{{this.productCategory}}</small>
-                        <p>{{this.productDescription}}</p>
-                        <h4>{{this.productStock}} unidades disponibles.</h4>
-                    </div>
-                    <button title="Agregar al Carrito" class="addToCart">
-                        <h4><small>US$</small>{{this.productPrice}}.00<i class="fa-solid fa-cart-plus"></i></h4>
-                    </button>
-                </article>
-            </li>
-            {{/if}}
-            {{/each}}
-        </ul>
-        {{else}}
-        <p>
-            No hay productos para mostrar
-        </p>
-        {{/if}}
-    </div>
-    <div class="cart">
-        <h2>
-            Carrito
-        </h2>
-        <div class="cartOptions">
-            <a href="#" id="createCart">Crear nuevo carro...</a>
-            <label for="cartID">
-                ID: <input list="cartsId" type="text" name="cartID" id="cartID" placeholder="ID del carrito">
-                {{#if hayCarts}}
-                <datalist id="cartsId">
-                    {{#each carts}}
-                    <option value="{{this._id}}">
-                        {{/each}}
-                </datalist>
-                {{/if}}
-            </label>
-            <button title="Actualizar" class="updateCart">
-                Actualizar
-            </button>
+<main>
+    <div class="actions">
+        <div class="logo">
+            <h1>SATELITAL</h1>
         </div>
-        <div class="cartItems">
+        <div class="loadOptions">
+            <input style="display: none;" type="file" id="excelFileInput" />
+            <div class="buttonFile">
+                <span class="material-symbols-outlined">
+                    ads_click
+                </span>
+                <div class="filename">
+                    Cargar Archivo...
+                </div>
+            </div>
+            <span id="checkFile" class="material-symbols-outlined inv">
+                cloud_upload
+            </span>
+        </div>
+        <div class="totalRegisters">
+            Registros Totales: <span id="total" title="Indica la cantidad de filas ocupadas en el archivo Excel, si hay filas vacías contarán, pero no aparecerán.">0</span>
+        </div>
+        <div class="progressBar">
+            <div class="allBar">
+                <div class="progressInfo">
+                    <span id="current"></span>
+                    <span id="separator"></span>
+                    <span id="totalSelected"></span>
+                </div>
+                <div class="currentPos">
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <span class="material-symbols-outlined" id="startScan">
+                play_arrow
+            </span>
+            <span class="material-symbols-outlined disabled" id="downloadFile">
+                download
+            </span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="tableHeader">
+            <div class="registro">
+                <div></div>
+                <div>
+                    <label for="regCheckbox" id="labelAllRegCheckbox">
+
+                    </label>
+                </div>
+                <div>Fecha</div>
+                <div>Código</div>
+                <div>Serie</div>
+                <div>Número</div>
+                <div>RUC</div>
+                <div>Nombre</div>
+                <div>SubTotal</div>
+                <div>Exonerado</div>
+                <div>Inafecto</div>
+                <div>Total</div>
+                <div>Auto. Imprenta</div>
+                <div>Estado</div>
+                <div>Resultado</div>
+                <div>Observaciones</div>
+            </div>
+        </div>
+        <div class="tableBody">
 
         </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-<script src="./js/cartOptions.js"></script>
+</main>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="./js/loadShowXLS.js"></script>
+<script src="./js/script.js"></script>
+<script type="module" src="./js/arrayValidate.js"></script>

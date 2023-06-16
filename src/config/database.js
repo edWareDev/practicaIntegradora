@@ -1,1 +1,0 @@
-export const MONGODB_CNX_STR = 'mongodb+srv://coderHouse:testCoderHouse@cluster0.q96bb5u.mongodb.net/ecommerce'
